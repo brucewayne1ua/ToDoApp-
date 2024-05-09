@@ -1,3 +1,5 @@
+# API in one File
+
 import uuid
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
@@ -55,10 +57,10 @@ def get_tasks():
 
 @app.post("/api/tasks")
 def create_task(task: Task):
-    print("Данные от фронтенда:", task.name, task.description)
+    print("Data by frontend:", task.name, task.description)
     if not task.name or not task.description:
         raise HTTPException(status_code=400, detail="Name and description fields are required")
-    task_id = str(uuid.uuid4())  # Генерируем новый ID для задачи
+    task_id = str(uuid.uuid4())  # Generate new id for task
     conn = get_connection()
     c = conn.cursor()
     c.execute("INSERT INTO tasks VALUES (?, ?, ?)", (task_id, task.name, task.description))

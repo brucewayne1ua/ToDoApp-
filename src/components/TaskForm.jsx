@@ -17,12 +17,12 @@ const TaskForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/tasks', { name, description });
-      console.log('Создана новая задача:', response.data);
-      // Очищаем поля ввода после успешной отправки
+      console.log('Create new task:', response.data);
+      // Crear enter
       setName('');
       setDescription('');
     } catch (error) {
-      console.error('Ошибка при создании задачи:', error);
+      console.error('Error:', error);
     }
   };
 
@@ -31,7 +31,7 @@ const TaskForm = () => {
       <div className="form-wrapper">
         <form className="form" onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="nameInput" className="form-label">Введите название задачи</label>
+            <label htmlFor="nameInput" className="form-label">Add name task</label>
             <input
               type="text"
               className="form-control"
@@ -41,7 +41,7 @@ const TaskForm = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="descriptionInput" className="form-label">Введите описание задачи</label>
+            <label htmlFor="descriptionInput" className="form-label">Add info for task</label>
             <input
               type="text"
               className="form-control"
@@ -50,7 +50,7 @@ const TaskForm = () => {
               onChange={handleChangeDescription}
             />
           </div>
-          <button type="submit" className="btn btn-primary">Добавить задачу</button>
+          <button type="submit" className="btn btn-primary">Add Task</button>
         </form>
       </div>
     </div>
