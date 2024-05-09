@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Выравниваем по вертикали на весь экран */
+}
+
+.form-wrapper {
+  width: 400px; /* Задаем ширину формы */
+}
+
+.form {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
